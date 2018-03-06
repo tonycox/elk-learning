@@ -1,0 +1,5 @@
+rootProject.name = 'garage'
+
+include 'kafka'
+include 'flink'
+include 'app'

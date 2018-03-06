@@ -1,0 +1,9 @@
+server.port: 8080
+
+spring:
+  hazelcast.config: classpath:config/my-hazelcast.xml
+
+kafka:
+  producer:
+    bootstrap: localhost:9093
+    topic: searchQueueTopic
