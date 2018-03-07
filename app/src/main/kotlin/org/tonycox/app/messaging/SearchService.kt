@@ -7,7 +7,6 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 import org.tonycox.app.event.SearchMessage
 
-
 /**
  * @author Anton Solovev
  * @since 3/6/2018.

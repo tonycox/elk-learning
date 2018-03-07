@@ -29,25 +29,25 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-reflect"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
-    compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.boot:spring-boot-starter-data-rest')
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('com.fasterxml.jackson.module:jackson-module-kotlin')
-    compile('org.springframework.kafka:spring-kafka')
-    runtime('org.springframework.boot:spring-boot-devtools')
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    compile 'org.springframework.kafka:spring-kafka'
+    runtime 'org.springframework.boot:spring-boot-devtools'
+    compile "org.springframework.boot:spring-boot-configuration-processor"
 
     /*testing*/
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testCompile 'org.springframework.kafka:spring-kafka-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 
     /*logging*/
     compile 'org.springframework.boot:spring-boot-starter-log4j2'
     compile('org.apache.kafka:kafka-log4j-appender:1.0.0') {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     }
-
-    compile "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 configurations {

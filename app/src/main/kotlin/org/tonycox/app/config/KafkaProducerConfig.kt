@@ -14,7 +14,6 @@ import org.springframework.kafka.support.serializer.JsonSerializer
 import org.tonycox.app.event.SearchMessage
 import java.util.*
 
-
 /**
  * @author Anton Solovev
  * @since 3/6/2018.
@@ -44,7 +43,6 @@ class KafkaProducerConfig {
         return DefaultKafkaProducerFactory<String, SearchMessage>(producerConfigs(),
                 stringKeySerializer(), messageJsonSerializer())
     }
-
 
     @Bean
     fun stringKeySerializer(): Serializer<String> {

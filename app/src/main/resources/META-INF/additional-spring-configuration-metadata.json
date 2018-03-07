@@ -1,7 +1,7 @@
 {
   "properties": [
     {
-      "name": "kafka.producer.bootstrap",
+      "name": "kafka.bootstrap-server",
       "type": "java.lang.String",
       "description": "Bootstrap server to connected to."
     },
@@ -9,6 +9,11 @@
       "name": "kafka.producer.topic",
       "type": "java.lang.String",
       "description": "Topic of search engine."
+    },
+    {
+      "name": "kafka.logs.topic",
+      "type": "java.lang.String",
+      "description": "Topic of log messages."
     }
   ]
 }

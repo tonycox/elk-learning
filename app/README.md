@@ -22,3 +22,10 @@ docker exec -it local-kafka \
 --topic logs \
 --from-beginning
 ```
+
+#### local kafka
+```
+sh ./app/src/main/resources/kafka/start-kafka.sh
+
+sh ./app/src/main/resources/kafka/stop-kafka.sh
+```

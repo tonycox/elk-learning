@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
  */
 @Component
 class KafkaProducerProperties {
-    @Value("\${kafka.producer.bootstrap}")
+    @Value("\${kafka.bootstrap-server}")
     lateinit var bootstrap: String
     @Value("\${kafka.producer.topic}")
     lateinit var topic: String

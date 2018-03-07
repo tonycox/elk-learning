@@ -1,10 +1,31 @@
 server.port: 8080
 
-spring:
-  hazelcast.config: classpath:config/my-hazelcast.xml
-
 kafka:
   producer:
-    # kafka docker container name
-    bootstrap: PLAINTEXT://local-kafka:9092
     topic: searchQueueTopic
+
+---
+
+spring:
+  profiles:
+    - embedded
+  hazelcast.config: classpath:config/hazelcast.xml
+
+kafka:
+  bootstrap-server: localhost:9092
+
+logging:
+  config: classpath:log4j2-embedded.xml
+
+---
+
+spring:
+  profiles:
+    - docker
+
+kafka:
+  # kafka docker container name {local-kafka}
+  bootstrap-server: PLAINTEXT://local-kafka:9092
+
+logging:
+  config: classpath:log4j2-docker.xml
