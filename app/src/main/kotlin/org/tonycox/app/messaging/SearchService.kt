@@ -25,11 +25,12 @@ class SearchService {
     @Autowired
     private lateinit var kafkaTemplate: KafkaTemplate<String, SearchMessage>
 
-    fun send(msg: SearchMessage): Boolean {
+    fun send(msg: SearchMessage): Long {
         val sendResult = kafkaTemplate.send(topicName, msg).get()
         val recordMetadata = sendResult.recordMetadata
+        val offset = recordMetadata.offset()
         logger.info("topic = {}, partition = {}, offset = {}, searchMessage = {}",
-                recordMetadata.topic(), recordMetadata.partition(), recordMetadata.offset(), msg)
-        return true
+                recordMetadata.topic(), recordMetadata.partition(), offset, msg)
+        return offset
     }
 }
