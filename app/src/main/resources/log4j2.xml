@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="info" name="garage-log-to-kafka" packages="org.tonycox.app">
+<Configuration status="info" name="garage-log-to-kafka" packages="org.tonycox.garage">
     <Appenders>
         <Kafka name="kafkaAppender" topic="logs">
             <JSONLayout/>
-            <Property name="bootstrap.servers">localhost:9093</Property>
+            <!-- kafka docker container name -->
+            <Property name="bootstrap.servers">PLAINTEXT://local-kafka:9092</Property>
         </Kafka>
         <Console name="stdout" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m%n"/>

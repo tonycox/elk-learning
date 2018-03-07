@@ -5,5 +5,6 @@ spring:
 
 kafka:
   producer:
-    bootstrap: localhost:9093
+    # kafka docker container name
+    bootstrap: PLAINTEXT://local-kafka:9092
     topic: searchQueueTopic

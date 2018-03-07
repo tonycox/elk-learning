@@ -46,6 +46,8 @@ dependencies {
     compile('org.apache.kafka:kafka-log4j-appender:1.0.0') {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     }
+
+    compile "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 configurations {
@@ -70,3 +72,11 @@ jar {
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
+
+task copyJarToDocker(type: Copy) {
+    from jar
+    into "src/main/docker/build"
+}
+
+compileJava.dependsOn processResources
+build.dependsOn copyJarToDocker

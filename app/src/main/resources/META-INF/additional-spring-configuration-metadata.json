@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "kafka.producer.bootstrap",
+      "type": "java.lang.String",
+      "description": "Bootstrap server to connected to."
+    },
+    {
+      "name": "kafka.producer.topic",
+      "type": "java.lang.String",
+      "description": "Topic of search engine."
+    }
+  ]
+}

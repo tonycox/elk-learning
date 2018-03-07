@@ -28,7 +28,7 @@ class SearchService {
     fun send(msg: SearchMessage): Boolean {
         val sendResult = kafkaTemplate.send(topicName, msg).get()
         val recordMetadata = sendResult.recordMetadata
-        logger.info("topic = {}, partition = {}, offset = {}, workUnit = {}",
+        logger.info("topic = {}, partition = {}, offset = {}, searchMessage = {}",
                 recordMetadata.topic(), recordMetadata.partition(), recordMetadata.offset(), msg)
         return true
     }
