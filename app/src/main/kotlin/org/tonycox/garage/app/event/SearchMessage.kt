@@ -1,4 +1,4 @@
-package org.tonycox.app.event
+package org.tonycox.garage.app.event
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty

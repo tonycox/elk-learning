@@ -1,4 +1,4 @@
-package org.tonycox.app.rest
+package org.tonycox.garage.app.controllers
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.tonycox.app.event.SearchMessage
-import org.tonycox.app.messaging.SearchService
+import org.tonycox.garage.app.event.SearchMessage
+import org.tonycox.garage.app.messaging.SearchService
 
 /**
  * @author Anton Solovev
@@ -15,7 +15,7 @@ import org.tonycox.app.messaging.SearchService
  */
 @RestController
 @RequestMapping("/search")
-class SampleKafkaMessageController {
+class SearchController {
     @Autowired
     private lateinit var searchService: SearchService
 

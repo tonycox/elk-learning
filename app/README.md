@@ -1,4 +1,4 @@
-#### if doesn't exist
+#### if network doesn't exist
 ```
 docker network create garage-net
 ```
@@ -14,18 +14,15 @@ docker run -it --name app \
 -p 8080:8080 \
 app
 ```
-#### how to see logs
+#### how to see application's logs
 ```
-docker exec -it local-kafka \
+docker exec -it doc-kafka \
 /usr/local/kafka_2.11-1.0.0/bin/kafka-console-consumer.sh \
 --bootstrap-server kafka:9092 \
 --topic logs \
 --from-beginning
 ```
-
 #### local kafka
-```
-sh ./app/src/main/resources/kafka/start-kafka.sh
-
-sh ./app/src/main/resources/kafka/stop-kafka.sh
-```
+if you want to debug application locally -> 
+start scripts from kafka module before.
+[see README.md](https://github.com/tonycox/garage/blob/master/kafka/README.md)

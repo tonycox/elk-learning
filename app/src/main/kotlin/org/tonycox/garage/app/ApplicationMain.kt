@@ -1,4 +1,4 @@
-package org.tonycox.app
+package org.tonycox.garage.app
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

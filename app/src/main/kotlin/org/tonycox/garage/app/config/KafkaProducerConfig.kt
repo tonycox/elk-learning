@@ -1,4 +1,4 @@
-package org.tonycox.app.config
+package org.tonycox.garage.app.config
 
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.Serializer
@@ -11,7 +11,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.core.ProducerFactory
 import org.springframework.kafka.support.serializer.JsonSerializer
-import org.tonycox.app.event.SearchMessage
+import org.tonycox.garage.app.event.SearchMessage
 import java.util.*
 
 /**

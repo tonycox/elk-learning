@@ -1,4 +1,4 @@
-package org.tonycox.app
+package org.tonycox.garage.app
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule

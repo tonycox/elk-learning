@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# only for local debugging
+
 SCRIPTPATH=$(dirname $0)
 
 mkdir ${SCRIPTPATH}/build

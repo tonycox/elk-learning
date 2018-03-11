@@ -24,8 +24,8 @@ spring:
     - docker
 
 kafka:
-  # kafka docker container name {local-kafka}
-  bootstrap-server: PLAINTEXT://local-kafka:9092
+  # kafka docker container name {doc-kafka}
+  bootstrap-server: PLAINTEXT://doc-kafka:9092
 
 logging:
   config: classpath:log4j2-docker.xml

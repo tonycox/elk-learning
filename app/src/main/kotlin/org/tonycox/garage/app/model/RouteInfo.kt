@@ -1,4 +1,4 @@
-package org.tonycox.app.model
+package org.tonycox.garage.app.model
 
 /**
  * @author Anton Solovev

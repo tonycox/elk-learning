@@ -1,11 +1,11 @@
-package org.tonycox.app.messaging
+package org.tonycox.garage.app.messaging
 
-import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
-import org.tonycox.app.event.SearchMessage
+import org.tonycox.garage.app.event.SearchMessage
+import org.tonycox.garage.app.loggerFor
 
 /**
  * @author Anton Solovev
@@ -15,7 +15,7 @@ import org.tonycox.app.event.SearchMessage
 class SearchService {
 
     companion object {
-        private val logger = LoggerFactory.getLogger(SearchService::class.java)
+        private val logger = loggerFor(SearchService::class.java)
     }
 
     @Value("\${kafka.producer.topic}")
