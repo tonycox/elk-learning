@@ -2,10 +2,12 @@
 
 # only for local debugging
 
-SCRIPTPATH=$(dirname $0)
+SCRIPT_PATH=$(dirname $0)
+KAFKA_VERSION=1.0.0
 
-mkdir ${SCRIPTPATH}/build
-wget -q -O - http://apache-mirror.rbc.ru/pub/apache/kafka/1.0.0/kafka_2.11-1.0.0.tgz | tar -xzf - -C ${SCRIPTPATH}/build
+mkdir ${SCRIPT_PATH}/build
+wget -q -O - http://apache-mirror.rbc.ru/pub/apache/kafka/${KAFKA_VERSION}/kafka_2.11-${KAFKA_VERSION}.tgz | tar -xzf - -C ${SCRIPT_PATH}/build
+KAFKA_LOCAL=${SCRIPT_PATH}/build/kafka_2.11-${KAFKA_VERSION}
 
-sh ${SCRIPTPATH}/build/kafka_2.11-1.0.0/bin/zookeeper-server-start.sh ${SCRIPTPATH}/build/kafka_2.11-1.0.0/config/zookeeper.properties &
-sh ${SCRIPTPATH}/build/kafka_2.11-1.0.0/bin/kafka-server-start.sh ${SCRIPTPATH}/build/kafka_2.11-1.0.0/config/server.properties &
+sh ${KAFKA_LOCAL}/bin/zookeeper-server-start.sh ${KAFKA_LOCAL}/config/zookeeper.properties &
+sh ${KAFKA_LOCAL}/bin/kafka-server-start.sh ${KAFKA_LOCAL}/config/server.properties &

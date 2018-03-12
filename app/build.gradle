@@ -68,7 +68,7 @@ compileTestKotlin {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'otg.tonycox.app.ApplicationMainKt'
+        attributes 'Main-Class': 'org.tonycox.garage.app.ApplicationMainKt'
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }

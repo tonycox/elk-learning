@@ -4,10 +4,12 @@ docker network create garage-net
 ```
 #### build the app
 ```
-./gradlew build
+./gradlew build:app
 
 docker build -t app app/src/main/docker
-
+```
+### run app
+```
 docker run -it --name app \
 --hostname app \
 --net garage-net \
@@ -22,7 +24,10 @@ docker exec -it doc-kafka \
 --topic logs \
 --from-beginning
 ```
-#### local kafka
+#### local app
 if you want to debug application locally -> 
 start scripts from kafka module before.
 [see README.md](https://github.com/tonycox/garage/blob/master/kafka/README.md)
+
+and start script from flink-setup module.
+[see README.md](https://github.com/tonycox/garage/blob/master/flink-setup/README.md)

@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        scalaVersion = '2.11.12'
+        flinkVersion = '1.4.1'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+group 'org.tonycox'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'scala'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:$scalaVersion"
+    testCompile 'org.scalatest:scalatest_2.11:3.0.5'
+
+    compile "org.apache.flink:flink-scala_2.11:$flinkVersion"
+    compile "org.apache.flink:flink-streaming-scala_2.11:$flinkVersion"
+    compile "org.apache.flink:flink-clients_2.11:$flinkVersion"
+
+    compile "org.apache.flink:flink-connector-kafka-base_2.11:$flinkVersion"
+    compile "org.apache.flink:flink-connector-kafka-0.11_2.11:$flinkVersion"
+
+    compile 'log4j:log4j:1.2.17'
+
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.tonycox.garage.flink.DriverSearcher'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+task copyJarToDocker(type: Copy) {
+    from jar
+    into "src/main/docker/build"
+}
+
+compileJava.dependsOn processResources
+build.dependsOn copyJarToDocker

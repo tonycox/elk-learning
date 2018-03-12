@@ -5,7 +5,9 @@ docker network create garage-net
 #### build dockerized kafka
 ```
 docker build -t doc-kafka kafka/src/main/docker
-
+```
+#### run dockerized kafka
+```
 docker run -it --name doc-kafka \
 --hostname kafka \
 --net garage-net \
