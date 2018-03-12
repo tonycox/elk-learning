@@ -39,11 +39,3 @@ jar {
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
-
-task copyJarToDocker(type: Copy) {
-    from jar
-    into "src/main/docker/build"
-}
-
-compileJava.dependsOn processResources
-build.dependsOn copyJarToDocker
