@@ -4,7 +4,7 @@ docker network create garage-net
 ```
 #### build dockerized kafka
 ```
-docker build -t doc-kafka kafka/src/main/docker
+docker build -t doc-kafka kafka/docker
 ```
 #### run dockerized kafka
 ```
@@ -16,7 +16,7 @@ doc-kafka
 ```
 #### start/stop local kafka
 ```
-sh ./kafka/src/main/resources/local-kafka/start-kafka.sh
+sh ./kafka/local-kafka/start-kafka.sh
 
-sh ./kafka/src/main/resources/local-kafka/stop-kafka.sh
+sh ./kafka/local-kafka/stop-kafka.sh
 ```

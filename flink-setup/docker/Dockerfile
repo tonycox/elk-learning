@@ -39,6 +39,6 @@ RUN set -ex; \
   chown -R flink:flink .;
 
 # Configure container
-COPY ./docker-entrypoint.sh docker-entrypoint.sh
+COPY docker-entrypoint.sh docker-entrypoint.sh
 ENTRYPOINT ["sh", "docker-entrypoint.sh"]
 EXPOSE 6123 8081

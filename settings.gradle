@@ -1,6 +1,4 @@
 rootProject.name = 'garage'
 
-include 'kafka'
 include 'driver-searcher'
 include 'app'
-include 'flink-setup'

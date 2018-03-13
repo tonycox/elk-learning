@@ -4,7 +4,7 @@ docker network create garage-net
 ```
 #### build dockerized flink
 ```
-docker build -t doc-flink flink-setup/src/main/docker
+docker build -t doc-flink flink-setup/docker
 ```
 #### start dockerized flink
 ```
