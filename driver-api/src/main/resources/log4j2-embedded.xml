@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="info" name="garage-log-to-kafka" packages="org.tonycox.garage.app">
+<Configuration status="info" name="garage-log-to-kafka" packages="org.tonycox.garage.driver.api">
     <Properties>
-        <property name="topic">${bundle:env-docker:kafka.logs.topic}</property>
-        <property name="bootstrap">${bundle:env-docker:kafka.bootstrap-server}</property>
+        <property name="topic">${bundle:env-embedded:kafka.logs.topic}</property>
+        <property name="bootstrap">${bundle:env-embedded:kafka.bootstrap-server}</property>
     </Properties>
 
     <Appenders>

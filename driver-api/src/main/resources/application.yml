@@ -1,9 +1,5 @@
 server.port: 8080
 
-kafka:
-  producer:
-    topic: searchQueueTopic
-
 ---
 
 spring:
