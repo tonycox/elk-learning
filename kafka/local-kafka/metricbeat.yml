@@ -1,0 +1,12 @@
+metricbeat.modules:
+- module: kafka
+  metricsets: ["partition"] # "consumergroup"
+  period: 10s
+  hosts: ["localhost:9092"]
+  #client_id: metricbeat
+  #retries: 3
+  #backoff: 250ms
+  # List of Topics to query metadata for. If empty, all topics will be queried.
+  #topics: []
+output.elasticsearch:
+  hosts: ["localhost:9200"]

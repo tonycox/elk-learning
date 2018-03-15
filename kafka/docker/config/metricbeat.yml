@@ -1,0 +1,30 @@
+metricbeat.modules:
+- module: system
+  metricsets:
+    - cpu
+    - filesystem
+    - memory
+    - network
+    - process
+  enabled: true
+  period: 10s
+  processes: ['.*']
+  cpu_ticks: false
+- module: kafka
+  metricsets: ["partition"]
+  period: 10s
+  hosts: ["kafka:9092"]
+  #client_id: metricbeat
+  #retries: 3
+  #backoff: 250ms
+  # List of Topics to query metadata for. If empty, all topics will be queried.
+  #topics: []
+output.kafka:
+  # initial brokers for reading cluster metadata
+  hosts: ["kafka:9092"]
+  topic: 'kafka_logs'
+  partition.round_robin:
+    reachable_only: false
+  required_acks: 1
+  compression: none
+  max_message_bytes: 1000000
