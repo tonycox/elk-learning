@@ -1,0 +1,82 @@
+buildscript {
+    ext {
+        kotlinVersion = '1.2.30'
+        springBootVersion = '2.0.0.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}"
+    }
+}
+
+group 'org.tonycox'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-reflect"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    compile 'org.springframework.kafka:spring-kafka'
+    runtime 'org.springframework.boot:spring-boot-devtools'
+    compile "org.springframework.boot:spring-boot-configuration-processor"
+
+    /*testing*/
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testCompile 'org.springframework.kafka:spring-kafka-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+    /*logging*/
+    compile 'org.springframework.boot:spring-boot-starter-log4j2'
+    compile('org.apache.kafka:kafka-log4j-appender:1.0.0') {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+}
+
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin/'
+    test.java.srcDirs += 'src/test/kotlin/'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.tonycox.garage.user.api.UserApiApplicationKt'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+task copyJarToDocker(type: Copy) {
+    from jar
+    into "src/main/docker/build"
+}
+
+compileJava.dependsOn processResources
+build.dependsOn copyJarToDocker

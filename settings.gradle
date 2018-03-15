@@ -1,6 +1,6 @@
 rootProject.name = 'garage'
 
 include 'driver-searcher'
-include 'app'
+include 'user-api'
 include 'driver-data-ingester'
 include 'driver-api'
