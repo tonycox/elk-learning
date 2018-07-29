@@ -7,36 +7,35 @@ import java.time.LocalTime
 import java.util.*
 import java.util.concurrent.atomic.AtomicLong
 
-
 /**
  * @author Anton Solovev
  * @since 3/15/2018.
  */
 @Configuration
-class TripInitializtion {
+class TripInitialization {
 
     private val idGenerator: AtomicLong = AtomicLong()
     private val randGenerator = Random()
 
     @Bean
     fun tripMap(): Map<String, List<TripInfo>> {
-        val trips = listOf(
+        val trips = mutableListOf(
                 generateTrip("Someplace"),
                 generateTrip("Someplace"),
                 generateTrip("Someplace"),
                 generateTrip("Someplace"))
-        val trips2 = listOf(
+        val trips2 = mutableListOf(
                 generateTrip("AnotherPlace"),
                 generateTrip("AnotherPlace"),
                 generateTrip("AnotherPlace"),
                 generateTrip("AnotherPlace"))
-        val trips3 = listOf(
+        val trips3 = mutableListOf(
                 generateTrip("SignificantlyOtherPlace"),
                 generateTrip("SignificantlyOtherPlace"),
                 generateTrip("SignificantlyOtherPlace"),
                 generateTrip("SignificantlyOtherPlace"))
 
-        return mapOf(Pair("Someplace", trips), Pair("AnotherPlace", trips2), Pair("SignificantlyOtherPlace", trips3))
+        return mutableMapOf(Pair("Someplace", trips), Pair("AnotherPlace", trips2), Pair("SignificantlyOtherPlace", trips3))
     }
 
     fun generateTrip(origin: String): TripInfo {

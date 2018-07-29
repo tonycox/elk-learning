@@ -1,4 +1,4 @@
-package org.tonycox.garage.flink
+package org.tonycox.garage.driver.searching
 
 import java.util.Properties
 
